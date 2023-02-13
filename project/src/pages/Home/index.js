@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Header from '../../components/Header';
 import Balance from '../../components/Balance';
+import Movements from '../../components/Movements';
 
 const list = [
   {
@@ -21,7 +22,7 @@ const list = [
     id: 3,
     label: 'Pix Cliente 2',
     value: '1900,50',
-    date: '20/09/2023',
+    date: '22/09/2023',
     type: 1 //despesas
   }
 ]
@@ -38,7 +39,7 @@ export default function Home() {
           data={list}
           keyExtractor={ (item) => String(item.id) }
           showsVerticalScrollIndicator = {false}
-          renderItem={ ({ item }) => <Text>TESTE</Text> }
+          renderItem={ ({ item }) => <Movements data={item} /> }
         />
 
     </View>
@@ -53,9 +54,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginLeft: 14,
-    marginRight:14,
-    marginTop: 14
+    margin: 14,
   },
   list: {
     marginStart: 14,
